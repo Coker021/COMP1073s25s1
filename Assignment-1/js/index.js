@@ -18,3 +18,11 @@ const playbackBtn = document.getElementById('playback-button');
 const storyDisplay = document.getElementById('story');
 
 let currentIndexes = [0, 0, 0, 0, 0]; /* To track the current index of each column */
+
+/* STEP 4: Function to handle word selection */
+/* Ensures only one word per column can be selected at a time */
+function clearHighlights(columnIndex){
+    columns[columnIndex].forEach(word => {
+        word.classList.remove('highlight');
+    });
+}

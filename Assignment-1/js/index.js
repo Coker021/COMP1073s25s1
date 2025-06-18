@@ -26,3 +26,15 @@ function clearHighlights(columnIndex){
         word.classList.remove('highlight');
     });
 }
+
+/* STEP 5: Function to handle word selection */
+/* Uses currentIndexes[columnIndex] to determine the current selection */
+function selectWord(columnIndex){
+    clearHighlights(columnIndex);
+    const words = columns[columnIndex];
+    const currentIndex = currentIndexes[columnIndex] % words.length; /* Cycles back to the top if the end of this list is reached */
+    const word = words[currentIndex];
+    word.classList.add('highlight');
+    selectedWords[columnIndex] = word.textContent;
+    currentIndexes[columnIndex]++;
+}

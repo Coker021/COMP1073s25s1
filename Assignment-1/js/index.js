@@ -38,3 +38,12 @@ function selectWord(columnIndex){
     selectedWords[columnIndex] = word.textContent;
     currentIndexes[columnIndex]++;
 }
+
+/* STEP 6: Add event listeners to each of the 5 column buttons */
+buttons.forEach((btn,i) =>{
+    if(i < buttons.length) {
+        btn.addEventListener('click', () => {
+            selectWord(i);
+        });
+    }
+});

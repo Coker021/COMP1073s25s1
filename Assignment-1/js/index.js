@@ -47,3 +47,21 @@ buttons.forEach((btn,i) =>{
         });
     }
 });
+
+/* STEP 7: Playback button to display the selected words */
+playbackBtn.addEventListener('click', () => {
+    const story = selectedWords.every(word => word) ? selectedWords.join(' ') : 'Please complete the story.'; /* if not all columns have a selection, it shows a message asking the user to complete the story */
+    storyDisplay.textContent = story;
+});
+
+/* STEP 8: Surprise button to randomly select words from each column */
+surpriseBtn.addEventListener('click', () => {
+    selectedWords = columns.map((col, i) => {
+        clearHighlights(i);
+        const randomIndex = Math.floor(Math.random() * col.length);
+        col[randomIndex].classList.add('highlight');
+        return col[randomIndex].textContent;
+    });
+    storyDisplay.textContent = selectedWords.join(' ');
+});
+

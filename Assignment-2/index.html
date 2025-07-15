@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>Assignment 2 | COMP1073 Client-Side JavaScript</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link href="css/styles.css" rel="stylesheet" />
+    <script src="js/index.js" defer></script>
+</head>
+
+<body>
+    <header class="header"></header>
+    <h1>Assignment 2</h2>
+    <h2>The Smoothie Machine</h2>
+
+    <div class="container">
+        <form id="smoothie form">
+            <fieldset>
+                <label for name="name">Name:</label>
+                <input type="text" id="name" name="name" required />
+                <br>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required />
+                <br>
+                <label for="telephone">Telephone:</label>
+                <input type="tel" id="telephone" name="telephone" required />
+                <br>
+                <label for="quantity">Quantity of Smoothies:</label>
+                <input type="number" id="quantity" name="quantity" min="1" max="100" value="1" required />
+                <br>
+                <label for="size">Size:</label>
+                <select id="size" name="size" required>
+                    <option value="small">Small</option>
+                    <option value="medium">Medium</option>
+                    <option value="large">Large</option>
+                </select>
+                <br>
+                <label for="flavor">Flavor:</label>
+                <select id="flavor" name="flavor" required>
+                    <option value="banana">Banana</option>
+                    <option value="strawberry">Strawberry</option>
+                    <option value="mango">Mango</option>
+                    <option value="mixed">Mixed Fruit</option>
+                    <option value="green">Green Smoothie</option>
+                </select>
+                <br>
+                <label for="ingredients">Additional Ingredients:</label>
+                <select id="ingredients" name="ingredients" multiple>
+                    <option value="protein">Protein Powder</option>
+                    <option value="chia">Chia Seeds</option>
+                    <option value="spinach">Spinach</option>
+                    <option value="yogurt">Yogurt</option>
+                    <option value="almond_milk">Almond Milk</option>
+                    <option value="honey">Honey</option>
+                    <option value="peanut_butter">Peanut Butter</option>
+                    <option value="flaxseed">Flaxseed</option>
+                    <option value="coconut_water">Coconut Water</option>
+                    <option value="oats">Oats</option>
+                </select>
+                <br>
+                <Input type="reset" value="Reset" />
+                <input type="submit" id="submit" value="Submit" />
+            </fieldset>
+        </form>
+    </div>
+    <footer class="footer">
+        <p>&copy; 2025 COMP1073 Client-Side JavaScript</p>
+    </footer>
+</body>
+</html>

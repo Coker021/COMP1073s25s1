@@ -8,3 +8,61 @@ h1{
 h2,h3,h4,h5,h6{
     font-family: "Poppins", sans-serif;
 }
+p{
+    font-family: "Roboto", sans-serif;
+    font-size: 20px; 
+    text-decoration: none;
+}
+body > h1, h2{
+    text-align: center;
+    color: #333;
+}
+header{
+    display: flex;
+    align-items: center;
+    background-color: purple;
+    height: 150px;
+}
+.container{
+    width: 80%;
+    margin: auto;
+}
+.container > p{
+    font-family: "Roboto", sans-serif;
+    font-size: 1.2em;
+    text-align: center;
+    margin-top: 20px;
+}
+fieldset{
+    margin: 2em 0;
+    padding: 1em 2em;
+    border: solid 1px #ccc;
+    border-radius: 6px;
+    min-width: 200px;
+}
+label{
+    display: block;
+    margin-bottom: 0.5em;
+}
+label:first-of-type{
+    margin-top: 0.5em;
+}
+input, select{
+    width: 100%;
+    padding: 0.5em;
+    margin-bottom: 1em;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+input[type="submit"], input[type="reset"]{
+    width: auto;
+    background-color: purple;
+    color: #fff;
+    border: none;
+    padding: 0.5em 1em;
+    border-radius: 6px;
+    cursor: pointer;
+}
+input[type="submit"]:hover, input[type="reset"]:hover{
+    background-color: #000000;
+}

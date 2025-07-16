@@ -1,0 +1,30 @@
+{
+    "companyName": "Cold Stone Creamery.",
+    "headOffice": "Georgian Drive, Barrie, Ontario, Canada",
+    "established": 1988,
+    "active": true,
+    "topFlavors": [
+        {
+            "name": "Chocolate Mint",
+            "calories": 420,
+            "type": "ice cream",
+            "ingredients": [
+                "chocolate Syrup",
+                "Peppermint Sprinkle",
+                "Vanilla Base"
+            ],
+            "image": ""
+        },
+        {
+            "name": "Strawberry Sprinkle",
+            "calories": 360,
+            "type": "sorbet",
+            "ingredients": [
+                "strawberry purée",
+                "fresh strawberries",
+                "vanilla extract"
+            ],
+            "image": ""
+        }
+    ]
+}

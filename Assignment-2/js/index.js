@@ -28,13 +28,13 @@ class SmoothieMachine {
         const name = document.getElementById('name').value;
         const email = document.getElementById('email').value;
         const telephone = document.getElementById('telephone').value;
-        const quantity = document.getElementById('quantity').value;
+        const quantity = parseInt(document.getElementById('quantity').value);
         const size = document.getElementById('size').value;
         const flavor = document.getElementById('flavor').value;
         const ingredients = document.getElementById('ingredients').selectedOptions;
         const ingredientsArray = Array.from(ingredients).map(option => option.value);
 
-        // Add Smoothie IMG
+        // STEP 4: Add Smoothie IMG
         let cup = document.createElement("img");
         cup.setAttribute("src", "images/smoothie-cup.svg");
 
@@ -53,11 +53,27 @@ class SmoothieMachine {
                 cup.setAttribute("height", "150px");
         }
 
-        // Create a new SmoothieMachine instance
+        // STEP 5: Create a new SmoothieMachine instance
         const smoothieOrder = new SmoothieMachine(name, email, telephone, quantity, size, flavor, ingredientsArray);
 
-        // Display the order summary
+        // STEP 6: Add Pricing to SmoothieMachine()
+        const prices = {
+            small: 5.00,
+            medium: 7.50,
+            large: 10.00
+        };
+
+        let price = prices[size];
+
+        const totalPrice = price * quantity;
+
+        const smoothie = {name, email, telephone, quantity, size, flavor, ingredients, totalPrice};
+        localStorage.setItem('smoothieOrder', JSON.stringify(smoothie));
+
+        // STEP 7: Display the order summary
         document.getElementById('checkout-form').innerHTML = smoothieOrder.displayOrder();
+        document.getElementById('totalPrice').textContent = `$${totalPrice}`;
+        
 
     }
     

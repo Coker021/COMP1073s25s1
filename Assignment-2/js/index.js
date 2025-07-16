@@ -20,7 +20,8 @@ class SmoothieMachine {
         Quantity: ${this.quantity}
         Size: ${this.size}
         Flavor: ${this.flavor}
-        Ingredients: ${this.ingredients.join(', ')}`;
+        Ingredients: ${this.ingredients.join(', ')}`
+        + `\nTotal Price: $${this.totalPrice}`;
     }
 
     // STEP 3: Add a method to get the id of the elements

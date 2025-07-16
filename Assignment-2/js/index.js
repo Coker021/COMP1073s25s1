@@ -72,8 +72,8 @@ class SmoothieMachine {
         localStorage.setItem('smoothieOrder', JSON.stringify(smoothie));
 
         // STEP 7: Display the order summary
-        document.getElementById('checkout-form').innerHTML = smoothieOrder.displayOrder();
         document.getElementById('totalPrice').textContent = `$${totalPrice}`;
+        document.getElementById('checkout-form').innerHTML = smoothieOrder.displayOrder();
         
 
     }

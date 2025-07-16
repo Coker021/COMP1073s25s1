@@ -13,18 +13,18 @@
                 "Peppermint Sprinkle",
                 "Vanilla Base"
             ],
-            "image": ""
+            "image": "https://coker021.github.io/COMP1073s25s1/lesson-10/images/chocolate-mint.svg"
         },
         {
             "name": "Strawberry Sprinkle",
             "calories": 360,
-            "type": "sorbet",
+            "type": "ice cream",
             "ingredients": [
                 "strawberry purée",
                 "fresh strawberries",
                 "vanilla extract"
             ],
-            "image": ""
+            "image": "https://coker021.github.io/COMP1073s25s1/lesson-10/images/strawberry-sprinkle.svg"
         }
     ]
 }

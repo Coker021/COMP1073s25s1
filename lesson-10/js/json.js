@@ -44,13 +44,16 @@ function populateHeader(jsonBody) {
 
     // Create the P element
     let p = document.createElement('p');
+    let p1 = document.createElement('p');
+    let p2 = document.createElement('p');
     // Grab the company head office location, established date, and company status from the JSON object
-    p.textContent = `Head Office: ${jsonBody.headOffice}
-                    Established: ${jsonBody.established}
-                    Status: ${jsonBody.status}`;
+    p.textContent = `Head Office: ${jsonBody.headOffice};`
+    p1.textContent = `Established: ${jsonBody.established};`
+    p2.textContent = `Status: ${jsonBody.status};`
     // Inject the complete P element into the DOM, inside the HEADER
     header.appendChild(p);
-    
+    header.appendChild(p1);
+    header.appendChild(p2);
 };
 /* STEP 10b: Assemble the showTopFlavors() function */
 function showTopFlavors(jsonBody) {

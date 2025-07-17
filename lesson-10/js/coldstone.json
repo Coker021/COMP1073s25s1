@@ -36,6 +36,29 @@
                 "vanilla syrup"
             ],
             "image": "https://coker021.github.io/COMP1073s25s1/lesson-10/images/peach-mango.svg"
+        },
+        {
+            "name": "Banana Delight",
+            "calories": 300,
+            "type": "ice cream",
+            "ingredients": [
+                "banana slices",
+                "cream",
+                "vanilla base"
+            ],
+            "image": "https://coker021.github.io/COMP1073s25s1/lesson-10/images/ice-cream-xtra1.svg"
+        },
+        {
+            "name": "Lemon Sprinkle",
+            "calories": 450,
+            "type": "ice cream",
+            "ingredients": [
+                "lemon zest",
+                "vanilla cream",
+                "lemon syrup",
+                "sprinkles"
+            ],
+            "image": "https://coker021.github.io/COMP1073s25s1/lesson-10/images/ice-cream-xtra2.svg"
         }
     ]
 }

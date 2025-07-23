@@ -60,6 +60,8 @@ function showTopFlavors(jsonBody) {
     // STEP 10c: Attache the JSON topFlavors object to a variable
     //let topFlavors = jsonObj.topFlavors;
     let topFlavors = jsonBody.topFlavors;
+    let uiuy = jsonBody['topFlavors'][0]['ingredients'][1];
+    console.log(uiuy);
     console.log(topFlavors);
     // STEP 10d: Loop through the topFlavors object
     for (let i = 0; i < topFlavors.length; i ++) {

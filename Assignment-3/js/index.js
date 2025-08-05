@@ -13,7 +13,8 @@ const cityInput  = document.getElementById("city");
 const getWeatherBtn = document.getElementById("get-weather");
 const weatherResult = document.getElementById("weather-result");
 
-
+// STEP 5: Add an event listener to the button
+getWeatherBtn.addEventListener("click", getWeather);
 
 
 

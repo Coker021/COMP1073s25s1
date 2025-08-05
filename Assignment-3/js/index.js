@@ -43,6 +43,9 @@ async function getWeather() {
                                 Humidity: ${humidity}%, \n
                                 Wind Speed: ${windSpeed} m/s`;
             weatherResult.appendChild(text);
+
+            // STEP 10a: Add an image based on the weather type
+            displayWeatherImage(data.weather[0].main);
         })
         .catch(error => {
             // STEP 9: Handle errors
@@ -51,11 +54,28 @@ async function getWeather() {
             weatherResult.appendChild(errorMessage);
         });
     console.log("Weather data fetched for city: " + city);
-
-
+    cityInput.value = ""; // Clear the input field after fetching
 }
 
-
-
-   
+// STEP 10: Add Image Display for type of weather
+function displayWeatherImage(weatherType) {
+    const weatherDisplay = document.createElement("img");
+    switch(weatherType) {
+        case "Clear":
+            weatherDisplay.setAttribute("src", "img/sun.png");
+            break;
+        case "Clouds":
+            weatherDisplay.setAttribute("src", "img/cloud.png");
+            break;
+        case "Rain":
+            weatherDisplay.setAttribute("src", "img/rain.png");
+            break;
+        case "Snow":
+            weatherDisplay.setAttribute("src", "img/snow.png");
+            break;
+        default:
+            weatherDisplay.setAttribute("src", "img/default.png");
+    }
+    weatherResult.appendChild(weatherDisplay);
+}
 

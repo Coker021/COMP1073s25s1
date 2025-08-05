@@ -12,6 +12,8 @@ const apiKey = "b5da509689f5c4f193d5d8ae4c6dbe08";
 const cityInput  = document.getElementById("city");
 const getWeatherBtn = document.getElementById("get-weather");
 const weatherResult = document.getElementById("weather-result");
+const weatherIcon = document.getElementById("weather-icon");
+const weatherArea = document.getElementById("weather-area");
 
 // STEP 5: Add an event listener to the button
 getWeatherBtn.addEventListener("click", getWeather);
@@ -38,24 +40,71 @@ async function getWeather() {
                 const wind = data.wind.speed;
                 const humidity = data.main.humidity;
                 const windSpeed = data.wind.speed;
+                const timeZone = data.timezone;
+                const sunrise = data.sys.sunrise;
+                const sunset = data.sys.sunset;
+                const percentClouds = data.clouds.all;
+                const percentRain = data.rain ? data.rain["1h"] : 0;
+                const percentSnow = data.snow ? data.snow["1h"] : 0;
             console.log(data);
 
-            const text = document.createElement("p");
-            text.textContent = `City: ${cityWeather}, \n
-                                Temperature: ${temperature} °C, \n
-                                Max Temp: ${temp_max} °C, \n
-                                Min Temp: ${temp_min} °C, \n
-                                Description: ${description}, \n
-                                Icon: ${icon}, \n
-                                Pressure: ${pressure} hPa, \n
-                                Visibility: ${visibility} m, \n
-                                Wind: ${wind} m/s, \n
-                                Humidity: ${humidity}%, \n
-                                Wind Speed: ${windSpeed} m/s`;
-            weatherResult.appendChild(text);
-
             // STEP 10a: Add an image based on the weather type
-            displayWeatherImage(data.weather[0].main);
+            displayWeatherIcon(data.weather[0].main);
+            const text = document.createElement("h1");
+            const text1 = document.createElement("p");
+            const text2 = document.createElement("p");
+            const text3 = document.createElement("p");
+            const text4 = document.createElement("p");
+            const text5 = document.createElement("p");
+            const text6 = document.createElement("p");
+            const text7 = document.createElement("p");
+            const text8 = document.createElement("p");
+            const text9 = document.createElement("p");
+            const text10 = document.createElement("p");
+            const text11 = document.createElement("p");
+            const text12 = document.createElement("p");
+            const text13 = document.createElement("p");
+            const text14 = document.createElement("p");
+            const text15 = document.createElement("p");
+            const text16 = document.createElement("p");
+
+
+            text.textContent = cityWeather;
+            text1.textContent = "Temperature: " + temperature + " °C";
+            text2.textContent = "Max Temp: " + temp_max + " °C";
+            text3.textContent = "Min Temp: " + temp_min + " °C";
+            text4.textContent = "Description: " + description;
+            text5.textContent = "Icon: " + icon;
+            text6.textContent = "Pressure: " + pressure + " hPa";
+            text7.textContent = "Visibility: " + visibility + " m";
+            text8.textContent = "Wind: " + wind + " m/s";
+            text9.textContent = "Humidity: " + humidity + "%";
+            text10.textContent = "Wind Speed: " + windSpeed + " m/s";
+            text11.textContent = "Time Zone: " + timeZone + " seconds from UTC";
+            text12.textContent = "Sunrise: " + new Date(sunrise * 1000).toLocaleTimeString() + " (local time)";
+            text13.textContent = "Sunset: " + new Date(sunset * 1000).toLocaleTimeString() + " (local time)";
+            text14.textContent = "Cloudiness: " + percentClouds + "%";
+            text15.textContent = "Rain (last 1h): " + (percentRain ? percentRain + " mm" : "0 mm");
+            text16.textContent = "Snow (last 1h): " + (percentSnow ? percentSnow + " mm" : "0 mm");
+
+            weatherArea.appendChild(text);
+            weatherResult.appendChild(text1);
+            weatherResult.appendChild(text2);
+            weatherResult.appendChild(text3);
+            weatherResult.appendChild(text4);
+            weatherResult.appendChild(text5);
+            weatherResult.appendChild(text6);
+            weatherResult.appendChild(text7);
+            weatherResult.appendChild(text8);
+            weatherResult.appendChild(text9);
+            weatherResult.appendChild(text10);
+            weatherResult.appendChild(text11);
+            weatherResult.appendChild(text12);
+            weatherResult.appendChild(text13);
+            weatherResult.appendChild(text14);
+            weatherResult.appendChild(text15);
+            weatherResult.appendChild(text16);
+
             console.log("Weather data fetched for city: " + city);
             cityInput.value = ""; // Clear the input field after fetching
         }
@@ -67,10 +116,14 @@ async function getWeather() {
             weatherResult.appendChild(errorMessage);
             cityInput.value = ""; // Clear the input field after error
         });
+        weatherResult.innerHTML = ""; // Clear previous results
+        weatherIcon.innerHTML = ""; // Clear previous icon
+        weatherArea.innerHTML = ""; // Clear previous area
+        
 }
 
 // STEP 10: Add Image Display for type of weather
-function displayWeatherImage(weatherType) {
+function displayWeatherIcon(weatherType) {
     const weatherDisplay = document.createElement("img");
     switch(weatherType) {
         case "Clear":
@@ -86,8 +139,8 @@ function displayWeatherImage(weatherType) {
             weatherDisplay.setAttribute("src", "img/snow.png");
             break;
         default:
-            weatherDisplay.setAttribute("src", "img/default.png");
+            weatherDisplay.setAttribute("src", "img/weather.png");
     }
-    weatherResult.appendChild(weatherDisplay);
+    weatherIcon.appendChild(weatherDisplay);
 }
 

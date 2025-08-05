@@ -21,40 +21,52 @@ async function getWeather() {
     const city = cityInput.value;
     const url = `${baseURL}?q=${city}&appid=${apiKey}&units=metric`;
 
-    // STEP 7: Fetch the weeather data from the API
+    // STEP 7: Fetch the weather data from the API
     fetch(url)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error("City not found");
-            }
-            return response.json();
-        })
+        .then(response => response.json())
         .then(data => {
-            // STEP 8: Display the weather data
-            const temperature = data.main.temp;
-            const description = data.weather[0].description;
-            const humidity = data.main.humidity;
-            const windSpeed = data.wind.speed;
+            if (data.cod === 200) {
+                // STEP 8: Display the weather data
+                const cityWeather = `Weather in ${data.name}`;
+                const temperature = data.main.temp;
+                const temp_max = data.main.temp_max;
+                const temp_min = data.main.temp_min;
+                const description = data.weather[0].description;
+                const icon = data.weather[0].icon;
+                const pressure = data.main.pressure;
+                const visibility = data.visibility;
+                const wind = data.wind.speed;
+                const humidity = data.main.humidity;
+                const windSpeed = data.wind.speed;
             console.log(data);
 
             const text = document.createElement("p");
-            text.textContent = `Temperature: ${temperature} °C, \n 
+            text.textContent = `City: ${cityWeather}, \n
+                                Temperature: ${temperature} °C, \n
+                                Max Temp: ${temp_max} °C, \n
+                                Min Temp: ${temp_min} °C, \n
                                 Description: ${description}, \n
+                                Icon: ${icon}, \n
+                                Pressure: ${pressure} hPa, \n
+                                Visibility: ${visibility} m, \n
+                                Wind: ${wind} m/s, \n
                                 Humidity: ${humidity}%, \n
                                 Wind Speed: ${windSpeed} m/s`;
             weatherResult.appendChild(text);
 
             // STEP 10a: Add an image based on the weather type
             displayWeatherImage(data.weather[0].main);
+            console.log("Weather data fetched for city: " + city);
+            cityInput.value = ""; // Clear the input field after fetching
+        }
         })
         .catch(error => {
             // STEP 9: Handle errors
             const errorMessage = document.createElement("p");
             errorMessage.textContent = error.message;
             weatherResult.appendChild(errorMessage);
+            cityInput.value = ""; // Clear the input field after error
         });
-    console.log("Weather data fetched for city: " + city);
-    cityInput.value = ""; // Clear the input field after fetching
 }
 
 // STEP 10: Add Image Display for type of weather

@@ -1,28 +1,38 @@
 /* Variables
 -------------------------------------------------- */
 // STEP 1a: Grab the first <dd> element for displaying the latitude
-
+const latitude = document.querySelector("#latlong dd:nth-of-type(1)");
 // STEP 1b: Grab the second <dd> element for displaying the longitude
-
+const longitude = document.querySelector("#latlong dd:nth-of-type(2)");
 // STEP 1c: Grab the <p> element for outputting geolocation status messages
-
+const statusMsg = document.querySelector("#status");
 // STEP 1d: Grap the <a> element to use as a link to OpenMaps if the geolocation was successful
+const mapLink = document.querySelector("#mapLink");
 
 
 /* Functions
 -------------------------------------------------- */
 // STEP 3b: Build out the success() function, receiving the position as a parameter
-
+function success(position){
+  statusMsg.textContent = "We found your location!";
+  console.log(position);
   // STEP 3c: Output the latitude and longitude coordinates to the <dd> elements in steps 1a and 1b
-  
-  
+  latitude.textContent = position.coords.latitude + "°";
+  longitude.textContent = position.coords.longitude + "°";
   // STEP 3d: Build out the link to OpenStreetMap
-  
-  
+  let url = `https://www.openstreetmap.org/#map=18/${position.coords.latitude}/${position.coords.longitude}`;
+  console.log(url);
+  mapLink.setAttribute("href", url);
+  mapLink.setAttribute("target", "_blank");
+
+  mapLink.textContent = "Open on map";
+}
 
 
 // STEP 4a: Construct the error() function
-
+function error(){
+  statusMsg.textContent = "Unable to retrieve your location.";
+}
   // STEP 4b: Output a suitable error message
   
 
@@ -30,16 +40,18 @@
 /* Script Logic
 -------------------------------------------------- */
 // STEP 2a: Check support (the use will be asked for permission to allow for geolocation for security purposes, which is a good thing)
-
+if(!navigator.geolocation) {
   // STEP 2b: Geolocation is not supported, so output useful message
-  
-
+  statusMsg.textContent = "Geolocation is not supported on your device!";
+}
+else {
   // STEP 2c: Geolocation is supported, so let's give the user a useful message
-  
+  statusMsg.textContent = "Geolocation is supported on your device. Loading...";
   // STEP 2d: Let's have a look at the geolocation object
-  
+  console.log(navigator.geolocation);
   // STEP 3a: Use the getCurrentPosition() method, which passes the device position to a named callback function (if successful), or it calls an error function if it fails
-  
+  navigator.geolocation.getCurrentPosition(success, error);
+}
 
 // STEP 5: Try out the script on your mobile device - be sure to walk somewhere else in your office or classroom, then refresh the page to see your position change
 
